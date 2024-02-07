@@ -2,7 +2,7 @@
 
 # API
 
-https://brottsplatskartan.se/api/events/?app=mmITHS
+https://brottsplatskartan.se/api/events/?app=UniqueKey
 
 /api/events/?area=stockholms län
 
