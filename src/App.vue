@@ -1,15 +1,13 @@
 <script setup>
 
-import Nav from './components/Nav.vue'
+import Nav from './components/Nav.vue';
 import Footer from './components/Footer.vue';
-
 </script>
 
 <template>
   <div class="container">
     <Nav />
     <RouterView @custom-event="handleEvent" />
-
     <Footer />
   </div>
 </template>
@@ -28,10 +26,11 @@ export default {
   },
   methods: {
     handleEvent(id) {
-      console.log('Klickad händelse har id: ', id)
       this.eventId = id
+      console.log('Klickad händelse har id: ', id)
+
     }
-  }
+  },
 }
 
 

@@ -1,13 +1,28 @@
 <template>
   <div class="enter">
-    <RouterLink class="rl" to="/Home">
+    <div class="rl" @click="onClick">
       <h1>
         VÄLKOMMEN
       </h1>
       <p>Tryck för att komma vidare</p>
-    </RouterLink>
+    </div>
+
   </div>
 </template>
+
+<script>
+
+export default {
+  methods: {
+    onClick() {
+      this.$router.push('/Home')
+
+
+    }
+  }
+}
+
+</script>
 
 
 <style scoped>
@@ -20,6 +35,9 @@
 
 .rl {
   border: 1px solid aqua;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .rl:hover {

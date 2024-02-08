@@ -118,8 +118,7 @@ hr {
 }
 
 .Image {
-  max-width: 400px;
-  max-height: 250px;
+  max-width: 600px;
   border: 20px solid rgba(0, 0, 255, 0.156);
 }
 

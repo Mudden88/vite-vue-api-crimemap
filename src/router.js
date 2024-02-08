@@ -7,9 +7,9 @@ import Enter from './views/Enter.vue'
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
-    { component: Enter, path: '/' },
     { component: Events, path: '/Events' },
-    { component: Home, path: '/Home' }
+    { component: Enter, path: '/' },
+    { component: Home, path: '/:param' }
 
   ],
 

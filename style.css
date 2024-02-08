@@ -8,7 +8,7 @@ body {
   background-color: rgb(42, 42, 42);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1200px) {
   nav {
     margin-top: 0;
     background-color: rgb(42, 42, 42);
@@ -64,9 +64,10 @@ body {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 720px) {
   .Image {
     max-width: 240px;
+    border: 5px solid rgba(0, 0, 255, 0.156);
   }
 
   .imgMap {
@@ -80,5 +81,50 @@ body {
 
   .card {
     max-width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Image {
+    max-width: 180px;
+  }
+  .imgMap {
+    left: 50%;
+  }
+
+  .card {
+    max-width: 180px;
+  }
+  .vl {
+    display: none;
+  }
+
+  nav {
+    height: fit-content;
+  }
+  .title {
+    margin: 40px;
+  }
+}
+
+@media (max-width: 395px) {
+  .title {
+    font-size: 1rem;
+    margin: 50px 50px 0 0;
+  }
+  nav > ul,
+  nav > li {
+    margin: 0;
+  }
+  .pfirst,
+  .eventsTitle {
+    font-size: smaller;
+  }
+  .card {
+    max-width: 150px;
+  }
+  .imgMap {
+    padding: 0;
+    left: 50%;
   }
 }

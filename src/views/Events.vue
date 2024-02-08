@@ -1,3 +1,7 @@
+<script setup>
+import UserName from '../components/UserName.vue'
+</script>
+
 <template>
   <div>
     <h3 class="eventsTitle">Visa händelser efter stad</h3>
@@ -8,11 +12,14 @@
         <option v-for="option in options" :key="option.value" :value="option.value">
           {{ option.label }}</option>
       </select></label>
-    <p class="pfirst">Du har valt: {{ selectedOpt }}</p>
+
+    <UserName :user-name="yourName" @new-user="handleNewUser" />
+    <p class="pfirst" v-if="yourName"> Hej! {{ yourName }}, Du har valt: {{ selectedOpt }} </p>
+
     <div class="cardWrapper">
 
 
-      <ul v-for="event in events" :key="event.id">
+      <ul v-for=" event  in  events " :key="event.id">
         <div class="card" @click="selectEvent(event)">
           <p class="id">Id: {{ event.id }}</p>
           <hr>
@@ -49,6 +56,7 @@ export default {
     return {
       events: [],
       loading: true,
+      yourName: null,
       selectedOpt: null,
       selectedImage: null,
       options: [
@@ -63,10 +71,13 @@ export default {
         { value: 'Bollnäs', label: 'Bollnäs' },
         { value: 'Karlstad', label: 'Karlstad' },
         { value: 'Åmål', label: 'Åmål' },
-        { value: 'Mölndal', label: 'Mölndal' }
+        { value: 'Mölndal', label: 'Mölndal' },
+        { value: 'Gotland', label: 'Gotland' },
+        { value: 'Öland', label: 'Öland' }
       ]
     }
   },
+
   mounted() {
 
     //Sorterar options i bokstavsordning
@@ -88,7 +99,8 @@ export default {
   watch: {
     selectedOpt(newOption) {
       this.fetchEvents(newOption)
-    }
+    },
+
 
   },
 
@@ -109,8 +121,15 @@ export default {
 
       this.$emit('custom-event', event.id)
     },
+    handleNewUser(payload) {
+      this.yourName = payload
+    }
+
+
+
   },
-  emits: ['custom-event']
+  emits: ['custom-event'],
+
 }
 
 
