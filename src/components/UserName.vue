@@ -1,8 +1,12 @@
 <template>
-  <label class="pfirst">Skriv in ditt namn:
-    <input type="text" v-model="payload">
-    <button @click="setUser">Skicka</button>
-  </label>
+  <div class="pfirst">
+    <label>Skriv in ditt namn:
+      <div>
+        <input type="text" v-model="payload">
+        <button @click="setUser">Skicka</button>
+      </div>
+    </label>
+  </div>
 </template>
 
 <script>
@@ -36,5 +40,9 @@ export default {
 <style scoped>
 input {
   width: 10em;
+}
+
+.pfirst {
+  margin-top: 10px;
 }
 </style>
