@@ -58,7 +58,7 @@ body {
     height: fit-content;
     background-color: whitesmoke;
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     filter: drop-shadow(5px 5px 5px rgba(9, 0, 0, 0.35));
   }
