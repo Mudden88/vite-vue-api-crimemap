@@ -1,7 +1,3 @@
-<script setup>
-import UserName from '../components/UserName.vue'
-</script>
-
 <template>
   <div>
     <h3 class="eventsTitle">Visa händelser efter stad</h3>
