@@ -1,6 +1,5 @@
 <script setup>
 import UserName from '../components/UserName.vue';
-
 </script>
 
 <template>
@@ -44,6 +43,7 @@ import UserName from '../components/UserName.vue';
 
 <script>
 import axios from 'axios';
+import { useRoute } from 'vue-router';
 
 export default {
   data() {
@@ -53,6 +53,7 @@ export default {
       yourName: null,
       selectedOpt: null,
       selectedImage: null,
+      city: this.$route.params.city || '',
       options: [
         { value: 'Göteborg', label: 'Göteborg' },
         { value: 'Stockholm', label: 'Stockholm' },
@@ -86,11 +87,22 @@ export default {
           this.loading = false
         })
     }, "2000")
+    this.fetchEvents(this.city)
+
+    this.$router.afterEach((to) => {
+      if (to.params.city !== this.city) {
+        this.city = to.params.city || ''
+        this.fetchEvents(this.city)
+      }
+    })
   },
   watch: {
     selectedOpt(newOption) {
       this.fetchEvents(newOption)
     },
+    city(newCity) {
+      this.fetchEvents(newCity)
+    }
   },
   methods: {
     fetchEvents(city) {
@@ -111,7 +123,7 @@ export default {
     },
     handleNewUser(payload) {
       this.yourName = payload
-    }
+    },
   },
   emits: ['custom-event'],
 }
